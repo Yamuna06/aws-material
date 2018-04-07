@@ -1,0 +1,168 @@
+what is Virtualization?
+why need Virtualization?
+
+Server configuration:
+UNIX/25CPU/32GBRAM/124HDD
+
+Networking Cloud:
+
+-- Amazon Provides VPC(Virtual Private Cloud)
+-- VPC enables to setup Virtual Private N/w in cloud
+
+Navigation:
+-----------
+Services-->Networking-->VPC
+-- Dedicated Host.
+--Isolation-- Sapareation
+
+Create VPC:
+-------------
+Click -->VPC --> Your VPCs -->Create VPCs
+
+192.168.0.0/16
+192.168-- Reprasents your VPC n/w 16-bit
+192.168.1-- subnet n/w portion 24-bit
+192.168.1.0 -- host one.  32 bit
+
+-- VPC is region Specific.
+
+NOTE: we can combine VPCs 
+Lets say one VPC Tokya and onther VPC in Mumbain we can connect with help of Peering Connections.
+
+Create Subnet:
+--------------
+subnet --> 
+
+EC2:(Elastic Compute Cloud)
+---------------------------
+i.e VM
+-- It is a virtual m/c in the cloud which has cpu,ram,hard disk and networking capabilities.
+
+-- In cloud We need EC2 Instance on top of it we want to install
+webserver to host our static website
+
+Choose an Amazon Machine Image(AMI):
+-------------------------------------
+AMI is a template that contains the s/w configuration (operating system,application server, and applications) required 
+to launch your instance.
+
+1)Choose Instance Type:
+   EC2 get 72hrs get free. for month.
+2) Configure Instance
+3) Add Storage(Hard Disk-HDD):
+4) Add Tags: Used for Billing
+5) Configure Security Group:  Configuring the firewall
+ --is a set of rules that control the traffic for your instance.
+
+Note: Every Ec2 must have one security group.can have multiple also.
+
+How to specify IP address? 
+---------------------------
+-- which is best practice Custom to specify the Source in SG.
+   Dont put anywhere(0.0.0.0/0,::/0) as a source in realtime.
+
+-- password key pair more secured than private password.
+-- we want to login to Ec2 instance from our laptop
+   the problem is VPC in diff n/w our laptop is in diff n/w
+
+-- To fix this problem 3 option
+
+ 1) can communicate with help of i/n
+ 2) can use VPN connection
+ 3) can use direct connect. LAN connection to VPC.
+
+-- Our laptop should have intenet connection
+-- our VPC & it Ec2 instance must have internet access.
+-- Create Internet gateway and attach to VPC.
+
+Internet Gateway:
+------------------
+-- when we create I/G by default it is not associated with VPC.
+-- Can we attach morethan one i/g to single VPC?
+-- Giving the access at datacenter level
+
+Protecting accidental termination of EC2 instance
+---------------------------------------------------------------
+
+-- This protection can be enables while launching or even after instance is launched.
+
+DEMO:
+
+while creating Ec2 instance - in - Configuration details 
+
+Enable termination projection : select project against option
+another way,
+
+In Actions, Instance Setting --change shutdown behaviour
+
+Ec2 - User Data
+--------------------
+Using user data we can run certain scripts(shell/pytho/ruby) at the time of lanunching ec2 instance.
+
+Demo:
+
+In step 3 , Advance details, User data
+we can upload file and copy paste the script
+
+sample script:
+#! /bin/bash  //This tell your shell or OS
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1> welcome to AWS </h1>" > /var/www/html/one.html   // > = redirecting
+
+Note: user data 
+
+Ec2 logs location:
+---------------------
+cd /var/log/
+ls // list the files
+cloud-init-output.log // can see output to troubleshoot the issues.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

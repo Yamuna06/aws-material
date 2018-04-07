@@ -1,0 +1,57 @@
+AMI(Amazon Machine Image):
+**************************
+-- It is template of OS Image.
+-- Amazon Machine Image, AMI is a template that contains, OS and Pre configured softwares(java/pythond/ruby etc..)
+
+Demo:
+
+-- Launch Ec2 instance.
+-- Install the software required.
+-- Take a image out of this instance.
+-- Goto Action -- select Create a Image
+-- while create image by default it will reboot.
+
+-- By default custom AMI is private.
+-- we can share with other AWS account.
+-- we also can make this public.
+-- the limitation is region specific.
+
+AWS marketplace - taken the reseved instances but your company shutdow so can put in marketplace get refund some amount. 
+Community AMIs
+
+Elastic Ip:
+***********
+-- Is also a public ip but it is static it wont change.
+-- To attach Ec2 instance 
+-- Associate->Associate Address-->instance.
+-- we can detach EIP from my instance and can attach to an
+diff EC2 instance.
+
+eg: 
+-- Load balacer will effect.
+    5 server for some reasons stop it fix it and start
+    now ip will change it become on load balancer.
+    domaining naming to ip address
+
+-- Elactic IP is chargeble.if not associated with running instance.
+   then there will be charge.
+-- Not using for 3 hrs then the will be charge.16 rs/m
+
+Routing Table:
+--------------
+-- Routing Table works like router.
+-- This table has routes.Internet -- mobile
+-- Every Subnet is associated with exactly one routing table.
+-- When we create VPC aws create on default routing table.
+-- This also called as main routing table.implicit routing table.
+-- Whenever create new subnet by default, get associated
+   with to main route table.
+-- However we can create our routing table and can be associated 
+with subnet.
+
+
+
+
+
+
+
